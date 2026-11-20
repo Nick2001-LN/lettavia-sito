@@ -1,0 +1,4 @@
+# Anteprima: i motori di ricerca non devono indicizzare questo sito.
+# [DA COMPLETARE AL LANCIO] sostituire con Allow: / e, quando il dominio è noto, Sitemap: <URL>
+User-agent: *
+Disallow: /
