@@ -467,3 +467,125 @@ html:not(.js) .steps{max-width:44rem;margin-inline:auto}
 @media (max-width:640px){.l-l{left:-1%}.l-r{right:-1%}.l-l,.l-r{width:44%}}
 @media (min-width:961px){.js .steps{padding-bottom:26vh}}
 .tour{overflow-x:clip}
+
+/* ===== v4: sito più corto ===== */
+.hero{padding:calc(var(--header-h) + 20px) 0 40px}
+.hero h1{font-size:clamp(2.8rem,5.6vw,5rem)}
+.hero .lead{margin-bottom:30px}
+.stage{max-width:470px}
+.pad{padding:88px 0}
+.sec-head{margin-bottom:40px}
+h2.big,.sec-head h2,.privacy-grid h2,.pro-grid h2,.fhead h2{font-size:clamp(2rem,3.6vw,3.1rem);line-height:1.06;letter-spacing:-.022em;margin-bottom:18px}
+
+/* Funzioni a schede */
+.feat-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);grid-template-areas:"head stage" "tabs stage" "panels stage";grid-template-rows:auto auto 1fr;column-gap:64px;align-items:start}
+.fhead{grid-area:head}.fhead h2{margin-bottom:26px}
+.ftabs{grid-area:tabs;display:grid;grid-template-columns:repeat(5,auto);gap:6px;justify-content:start;margin-bottom:22px}
+.fstage-col{grid-area:stage;align-self:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.fpanels{grid-area:panels}
+.tab{position:relative;overflow:hidden;display:flex;align-items:center;gap:8px;font:600 .9375rem var(--sans);color:var(--text);background:transparent;border:1px solid var(--line-strong);border-radius:999px;padding:9px 16px;cursor:pointer;white-space:nowrap;transition:background-color .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+.tab:hover{background:var(--surface);transform:translateY(-1px)}
+.tab-n{font:italic 300 .9375rem var(--serif);color:var(--accent)}
+.tab[aria-selected=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.tab[aria-selected=true] .tab-n{color:inherit;opacity:.8}
+.tab-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:currentColor;opacity:.45;transform:scaleX(0);transform-origin:left}
+.feat.auto .tab[aria-selected=true] .tab-bar{animation:fillbar 7s linear forwards}
+.feat.paused .tab-bar{animation-play-state:paused!important}
+@keyframes fillbar{to{transform:scaleX(1)}}
+.fpanel{max-width:30rem}
+.fpanel h3{font-size:clamp(1.5rem,2.4vw,2rem);margin-bottom:12px;letter-spacing:-.015em}
+.fpanel>p{color:var(--muted);margin-bottom:0}
+.fpanel .ticks{margin-top:16px;gap:8px}
+.fp-n{font:600 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.js .fpanel:not([hidden]){animation:rise .6s var(--ease) backwards}
+.fpanel:focus-visible{outline-offset:8px}
+.fstage{position:relative;aspect-ratio:5/6;width:min(100%,500px);touch-action:pan-y}
+.fctrl{display:flex;align-items:center;gap:16px}
+.fctrl .stage-cap{min-width:17rem}
+.fnav{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:var(--card);color:var(--title);cursor:pointer;transition:transform .3s var(--ease),background-color .3s,color .3s}
+.fnav:hover{background:var(--accent);color:var(--on-accent);transform:scale(1.06)}
+.fnav .ico{width:20px;height:20px}
+html:not(.js) .fstage .comp:not(.on){display:none}
+html:not(.js) .ftabs,html:not(.js) .fnav{display:none}
+html:not(.js) .fpanel{margin-bottom:26px}
+.extras{margin-top:56px;padding-top:32px}
+/* mini statistiche nel pannello Progressi */
+.mstats{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:20px}
+.mstat{display:flex;align-items:center;gap:10px}
+.ring.sm{width:46px;margin:0}
+.ring.sm circle{stroke-width:11}
+.mstat p{margin:0;line-height:1.2;color:var(--muted);font-size:.875rem}
+.mstat p b{font:600 1.25rem var(--serif);color:var(--title)}
+.mstat p span{display:block}
+.mnote{margin:10px 0 0;font-size:.8125rem;color:var(--muted)}
+/* privacy compatta */
+.privacy-grid{gap:64px}
+.io{margin-top:22px}
+.io .chips{flex-direction:row;flex-wrap:wrap;margin-bottom:16px}
+.io .chips li{padding:7px 16px;font-size:.9375rem}
+.facts{gap:12px}
+.fact{padding:18px 22px}
+/* pro */
+.pro-grid{gap:56px}
+.pro-card{padding:32px}
+.pal-preview{margin-top:20px;padding:18px}
+/* faq */
+.faq summary{padding:20px 52px 20px 0}
+/* cta finale */
+.final{padding:72px 0 72px}
+.final-card{padding:64px 28px;border-radius:36px}
+.final-card h2{font-size:clamp(2rem,4vw,3.2rem)}
+.final-card p{margin-bottom:26px}
+/* footer compatto */
+.site-footer{padding:40px 0 32px}
+.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
+.foot-brand b{font-size:1.25rem}
+.foot-brand p{margin:2px 0 0}
+.foot-nav ul{display:flex;flex-wrap:wrap;gap:8px 26px;grid-template-columns:none}
+.legal-line{width:100%;margin:6px 0 0;padding-top:20px}
+
+@media (max-width:960px){
+  .hero{padding-bottom:28px}
+  .hero .wrap{gap:12px}
+  .stage{max-width:400px}
+  .pad{padding:64px 0}
+  .feat-grid{grid-template-columns:1fr;grid-template-areas:"head" "tabs" "stage" "panels";column-gap:0}
+  .fhead h2{margin-bottom:18px}
+  .ftabs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px 8px;padding:4px 20px 10px;scrollbar-width:none}
+  .ftabs::-webkit-scrollbar{display:none}
+  .tab{scroll-snap-align:center;flex:none}
+  .fstage{width:min(100%,400px)}
+  .fctrl .stage-cap{min-width:0;flex:1;font-size:11px}
+  .fctrl{width:min(100%,400px)}
+  .fpanel{margin-top:22px;max-width:none}
+  .extras{grid-template-columns:1fr 1fr;margin-top:36px;padding-top:24px;gap:16px}
+  .ex span{display:none}
+  .ex{align-items:center}
+  .privacy-grid,.pro-grid{gap:36px}
+  .final{padding:48px 0}
+  .final-card{padding:52px 22px}
+}
+@media (max-width:640px){
+  .ex .ib{width:40px;height:40px}
+  .ex b{font-size:.95rem}
+  .pro-card{padding:24px 20px}
+  .foot{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .fstage .comp:not(.on){display:none}
+}
+.feat.hover .tab-bar{animation-play-state:paused!important}
+.ftabs{display:flex;flex-wrap:wrap}
+.feat{overflow-x:clip}
+@media (max-width:960px){.ftabs{flex-wrap:nowrap}}
+.feat-grid{grid-template-areas:". stage" "head stage" "tabs stage" "panels stage" ". stage";grid-template-rows:1fr auto auto auto 1fr}
+.js .fpanels{display:grid}
+.js .fpanel{grid-area:1/1}
+html:not(.js) .fpanel+.fpanel{margin-top:28px}
+.js .fpanel[hidden]{display:block;visibility:hidden}
+@media (max-width:960px){
+  .feat-grid{grid-template-areas:"head" "tabs" "stage" "panels";grid-template-rows:auto}
+  .mstats{flex-wrap:nowrap;gap:16px}
+  .mstat{flex-direction:column;align-items:flex-start;gap:6px}
+  .ring.sm{width:40px}
+}

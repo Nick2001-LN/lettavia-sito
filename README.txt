@@ -22,4 +22,4 @@ Anteprima su GitHub Pages (https://nick2001-ln.github.io/lettavia-sito/):
   - robots.txt è "Disallow: /": entrambi vanno modificati al lancio
   - 404.html usa percorsi con prefisso /lettavia-sito/ (un project site di GitHub Pages vive sotto /lettavia-sito/).
     Su Cloudflare Pages alla radice del dominio i percorsi devono essere "/" (es. /assets/style.css).
-  - La vecchia variante hero-b è stata rimossa nella v2.
+  - La vecchia variante hero-b è stata rimossa nella v2. Dalla v4 le funzioni sono in un'unica sezione a schede (tablist ARIA).

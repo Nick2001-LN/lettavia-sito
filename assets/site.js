@@ -63,37 +63,67 @@
       $$('[data-r], .ring').forEach(function (el) { io.observe(el); });
     }
 
-    /* ---- Tour delle funzioni: a ogni passo cambia l'intera composizione di schermate ---- */
-    var steps = $$('.step'), comps = $$('.tour-stage .comp'), dots = $$('.dots i'), cap = d.querySelector('.stage-cap');
-    function setStep(i) {
-      steps.forEach(function (s, k) { s.classList.toggle('on', k === i); });
-      comps.forEach(function (c, k) {
-        c.classList.toggle('on', k === i); c.classList.toggle('before', k < i); c.classList.toggle('after', k > i);
-        c.setAttribute('aria-hidden', k === i ? 'false' : 'true');
+    /* ---- Funzioni a schede: ogni scheda cambia la composizione di iPhone ---- */
+    var feat = d.querySelector('.feat');
+    if (feat) {
+      var tabs = $$('[role=tab]', feat), panels = $$('[role=tabpanel]', feat), comps = $$('.fstage .comp', feat);
+      var cap = feat.querySelector('.stage-cap'), list = feat.querySelector('[role=tablist]'), cur = 0;
+      var stopAuto = function () { feat.classList.remove('auto'); };
+      var select = function (i, user) {
+        var n = tabs.length; i = (i + n) % n; cur = i;
+        if (user) stopAuto();
+        tabs.forEach(function (t, k) { t.setAttribute('aria-selected', k === i ? 'true' : 'false'); t.tabIndex = k === i ? 0 : -1; });
+        panels.forEach(function (p, k) { p.hidden = k !== i; });
+        comps.forEach(function (c, k) {
+          c.classList.toggle('on', k === i); c.classList.toggle('before', k < i); c.classList.toggle('after', k > i);
+          c.setAttribute('aria-hidden', k === i ? 'false' : 'true');
+        });
+        if (cap) { cap.textContent = comps[i].getAttribute('data-cap') || ''; cap.classList.remove('sw'); void cap.offsetWidth; cap.classList.add('sw'); }
+        $$('.ring', panels[i]).forEach(function (r) { r.classList.remove('in'); void r.offsetWidth; r.classList.add('in'); });
+        $$('[data-count]', panels[i]).forEach(counter);
+        var t = tabs[i];
+        if (list && list.scrollWidth > list.clientWidth) list.scrollTo({ left: t.offsetLeft - (list.clientWidth - t.offsetWidth) / 2, behavior: reduce() ? 'auto' : 'smooth' });
+      };
+      tabs.forEach(function (t, k) {
+        t.addEventListener('click', function () { select(k, true); });
+        t.addEventListener('keydown', function (e) {
+          var map = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }, to = null;
+          if (e.key in map) to = cur + map[e.key];
+          else if (e.key === 'Home') to = 0;
+          else if (e.key === 'End') to = tabs.length - 1;
+          if (to === null) return;
+          e.preventDefault(); select(to, true); tabs[cur].focus();
+        });
       });
-      dots.forEach(function (s, k) { s.classList.toggle('on', k === i); });
-      if (cap && comps[i]) {
-        cap.textContent = comps[i].getAttribute('data-cap') || '';
-        cap.classList.remove('sw'); void cap.offsetWidth; cap.classList.add('sw');
+      $$('.fnav', feat).forEach(function (b) { b.addEventListener('click', function () { select(cur + (+b.getAttribute('data-dir')), true); }); });
+      /* scorrimento orizzontale sul telefono */
+      var stg = feat.querySelector('.fstage'), x0 = null, y0 = 0;
+      if (stg) {
+        stg.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+        stg.addEventListener('touchend', function (e) {
+          if (x0 === null) return;
+          var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+          if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.3) select(cur + (dx < 0 ? 1 : -1), true);
+        }, { passive: true });
       }
-    }
-    if (steps.length && comps.length) {
-      setStep(0);
-      if (hasIO) {
-        var tio = new IntersectionObserver(function (es) {
-          es.forEach(function (en) { if (en.isIntersecting) setStep(steps.indexOf(en.target)); });
-        }, { rootMargin: '-48% 0px -48% 0px', threshold: 0 });
-        steps.forEach(function (s) { tio.observe(s); });
+      select(0, false);
+      /* avanzamento automatico leggero: parte quando la sezione è visibile, si ferma al primo intervento */
+      feat.addEventListener('animationend', function (e) {
+        if (e.animationName === 'fillbar' && feat.classList.contains('auto')) select(cur + 1, false);
+      });
+      feat.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') feat.classList.add('hover'); });
+      feat.addEventListener('pointerleave', function () { feat.classList.remove('hover'); });
+      feat.addEventListener('focusin', stopAuto);
+      if (hasIO && !reduce()) {
+        var started = false;
+        var fio = new IntersectionObserver(function (es) {
+          es.forEach(function (en) {
+            if (en.isIntersecting && !started) { started = true; feat.classList.add('auto'); }
+            feat.classList.toggle('paused', !en.isIntersecting);
+          });
+        }, { threshold: 0.35 });
+        fio.observe(feat);
       }
-    }
-    /* Composizioni nei passi (telefono/tablet): entrano quando compaiono */
-    var mobComps = $$('.step-comp .comp');
-    if (!hasIO || reduce()) { mobComps.forEach(function (c) { c.classList.add('on'); }); }
-    else {
-      var mio = new IntersectionObserver(function (es) {
-        es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('on'); mio.unobserve(en.target); } });
-      }, { threshold: 0.28 });
-      mobComps.forEach(function (c) { mio.observe(c); });
     }
 
     /* ---- Pausa delle animazioni infinite fuori schermo ---- */
