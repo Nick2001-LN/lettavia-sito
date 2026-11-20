@@ -187,10 +187,10 @@ h2.big,.sec-head h2,.privacy-grid h2,.pro-grid h2,.import h2{font-size:clamp(2.1
 
 /* Tour delle funzioni */
 .tour{padding:128px 0 96px}
-.tour-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:72px;align-items:start}
+.tour-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:56px;align-items:start}
 html:not(.js) .steps{max-width:44rem;margin-inline:auto}
-@media (min-width:961px){.js .tour-grid{grid-template-columns:minmax(0,1fr) minmax(0,.92fr)}}
-.step{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:66vh;padding:40px 44px}
+@media (min-width:961px){.js .tour-grid{grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr)}}
+.step{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:58vh;padding:36px 40px}
 .step::before{content:"";position:absolute;inset:0;border-radius:32px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);opacity:0;transition:opacity .5s var(--ease)}
 .step.on::before{opacity:1}
 .step>*{position:relative}
@@ -199,19 +199,39 @@ html:not(.js) .steps{max-width:44rem;margin-inline:auto}
 .step h3{font-size:clamp(1.7rem,2.9vw,2.5rem);margin-bottom:16px;letter-spacing:-.018em}
 .step p{color:var(--muted);margin-bottom:0}
 .step .ticks{margin-top:20px}
-.step-phone{display:block;width:min(300px,72%);margin:36px auto 0}
 .stage-col{display:none}
-@media (min-width:961px){.js .step-phone{display:none}}
 .js .stage-col{display:block;position:sticky;top:calc(var(--header-h) + 8px);align-self:start;height:calc(100vh - var(--header-h) - 16px);min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px}
-.tour-stage{position:relative;width:min(340px,calc((100vh - var(--header-h) - 120px) * .452));max-width:100%}
-.tour-stage .phone{position:relative}
-.shot{position:absolute;left:0;top:0;width:100%;opacity:0;transform:scale(.97) translate3d(0,14px,0);transition:opacity .55s var(--ease),transform .7s var(--ease);pointer-events:none}
-.shot:first-of-type{position:relative}
-.shot.on{opacity:1;transform:none}
-.tour-glow{position:absolute;left:50%;top:50%;width:150%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,var(--blob-a),transparent);z-index:-1}
+.step-comp{position:relative;width:min(420px,100%);aspect-ratio:5/6;margin:34px auto 0}
+@media (min-width:961px){.js .step-comp{display:none}}
+.tour-stage{position:relative;aspect-ratio:5/6;width:min(100%,calc((100vh - var(--header-h) - 150px) * .8333))}
+.tour-glow{position:absolute;left:50%;top:50%;width:120%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,var(--blob-a),transparent);z-index:-1}
+.stage-cap{margin:0;min-height:1.5em;text-align:center;font:600 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.stage-cap.sw{animation:rise .6s var(--ease) backwards}
 .dots{display:flex;gap:8px}
 .dots i{width:7px;height:7px;border-radius:9px;background:var(--line-strong);transition:transform .4s var(--ease),background-color .3s}
 .dots i.on{background:var(--accent);transform:scaleX(3.2)}
+
+/* Composizioni di schermate */
+.comp{position:absolute;inset:0}
+.cp{position:absolute;left:var(--l);top:var(--t);width:var(--w);z-index:var(--z,1);transform:translate3d(var(--ox,0%),var(--oy,0%),0) rotate(calc(var(--r,0deg) + var(--or,0deg))) scale(var(--os,1));transition:transform 1s var(--ease) var(--dl,0s),opacity .7s var(--ease) var(--dl,0s)}
+.cp .phone{animation:float 9s ease-in-out infinite}
+.cp:nth-child(2) .phone{animation-duration:11s;animation-delay:-3s}
+.cp:nth-child(3) .phone{animation-duration:10s;animation-delay:-6s}
+.js .comp:not(.on) .cp{opacity:0;--os:.9;--oy:12%;--dl:0s;transition-duration:.5s;pointer-events:none}
+.js .comp:not(.on) .cp:nth-child(odd){--ox:-16%}
+.js .comp:not(.on) .cp:nth-child(even){--ox:16%}
+.js .comp.after:not(.on) .cp{--oy:16%;--or:7deg}
+.js .comp.before:not(.on) .cp{--oy:-14%;--or:-7deg}
+.comp.on .cp:last-child{--dl:0s}
+.comp.on .cp:nth-last-child(2){--dl:.14s}
+.comp.on .cp:nth-last-child(3){--dl:.26s}
+.comp:not(.on) .phone{animation-play-state:paused}
+/* disposizioni: left, top, width, rotazione, livello */
+.c1 .p1{--l:0%;--t:17%;--w:40%;--r:-9deg;--z:1}.c1 .p2{--l:60%;--t:19%;--w:40%;--r:9deg;--z:1}.c1 .p3{--l:25%;--t:2%;--w:50%;--r:0deg;--z:3}
+.c2 .p1{--l:46%;--t:2%;--w:46%;--r:7deg;--z:1}.c2 .p2{--l:6%;--t:10%;--w:46%;--r:-4deg;--z:2}
+.c3 .p1{--l:0%;--t:33%;--w:36%;--r:-5deg;--z:1}.c3 .p2{--l:28%;--t:18%;--w:38%;--r:-1deg;--z:2}.c3 .p3{--l:54%;--t:2%;--w:44%;--r:4deg;--z:3}
+.c4 .p1{--l:50%;--t:13%;--w:44%;--r:3deg;--z:1}.c4 .p2{--l:5%;--t:2%;--w:44%;--r:-3deg;--z:2}
+.c5 .p1{--l:4%;--t:17%;--w:42%;--r:-7deg;--z:1}.c5 .p2{--l:40%;--t:3%;--w:48%;--r:4deg;--z:2}
 
 /* Numeri */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -231,6 +251,21 @@ html:not(.js) .steps{max-width:44rem;margin-inline:auto}
 .stat p{margin:0;color:var(--muted)}
 .stat .cap{font-size:.9375rem}
 .stats-note{margin:26px 0 0;text-align:center;color:var(--muted);font-size:.9375rem}
+.stats-sec{padding:96px 0}
+.stats-sec .sec-head{margin-bottom:44px}
+.stats-sec .stat{padding:28px 26px 26px}
+.stats-sec .ring{width:140px;margin-bottom:18px}
+.stats-sec .ring .num{font-size:2.2rem}.stats-sec .ring.big .num{font-size:2.5rem}
+/* Extra: funzioni senza schermata */
+.extras{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:72px;padding-top:44px;border-top:1px solid var(--line)}
+.ex{display:flex;gap:14px;align-items:flex-start}
+.ex .ib{display:grid;place-items:center;flex:none;width:46px;height:46px;border-radius:14px;background:var(--surface);color:var(--accent);transition:transform .45s var(--ease),background-color .3s,color .3s}
+.ex:hover .ib{transform:rotate(-8deg) scale(1.08);background:var(--accent);color:var(--on-accent)}
+.ex b{display:block;font:600 1.05rem var(--serif);color:var(--title);margin-bottom:2px}
+.ex span{display:block;color:var(--muted);font-size:.9375rem;line-height:1.5}
+/* Import dentro la sezione dati */
+.import-block{margin-top:96px;padding-top:80px;border-top:1px solid var(--line)}
+.import-block h3{font-size:clamp(1.8rem,3.2vw,2.7rem);line-height:1.08;letter-spacing:-.02em;margin-bottom:18px}
 
 /* Card funzioni */
 .grid{display:grid;gap:20px;grid-template-columns:repeat(3,1fr)}
@@ -364,7 +399,7 @@ html:not(.js) .steps{max-width:44rem;margin-inline:auto}
 @media (max-width:1040px){
   .js .tour-grid{gap:40px}
   .step{padding:32px 30px}
-  .grid{grid-template-columns:1fr 1fr}
+  .extras{grid-template-columns:1fr 1fr}
 }
 @media (max-width:960px){
   :root{--header-h:68px}
@@ -379,6 +414,9 @@ html:not(.js) .steps{max-width:44rem;margin-inline:auto}
   .step{min-height:0;padding:0 0 64px}
   .step::before{display:none}
   .stats{grid-template-columns:1fr}
+  .stats-sec{padding:72px 0}
+  .import-block{margin-top:64px;padding-top:56px}
+  .extras{margin-top:40px}
   .stat{display:grid;grid-template-columns:auto 1fr;gap:26px;text-align:left;align-items:center;padding:28px}
   .ring{margin:0;width:132px}
   .ring .num{font-size:2.1rem}.ring.big .num{font-size:2.3rem}
@@ -392,7 +430,7 @@ html:not(.js) .steps{max-width:44rem;margin-inline:auto}
   .nav a{padding:8px 9px;font-size:.875rem}
   .nav .nav-cta,.nav .opt{display:none}
   .brand{font-size:1.125rem}
-  .grid{grid-template-columns:1fr}
+  .extras{grid-template-columns:1fr}
   .chip{display:none}
   .hero h1{font-size:clamp(2.75rem,13.5vw,3.6rem)}
   .hero .lead{font-size:1.125rem}
@@ -416,6 +454,7 @@ html:not(.js) .steps{max-width:44rem;margin-inline:auto}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js [data-r]{opacity:1;transform:none}
+  .js .step-comp .comp:not(.on) .cp{opacity:1;--os:1;--oy:0%;--ox:0%;--or:0deg}
   .js .ring:not(.in) .bar{stroke-dashoffset:calc(100 - var(--val,0))}
   .marquee-track{flex-wrap:wrap;width:auto;justify-content:center}
   .marquee ul[aria-hidden]{display:none}
@@ -426,3 +465,5 @@ html:not(.js) .steps{max-width:44rem;margin-inline:auto}
 .chip-ring{width:44px;height:44px;color:var(--accent);stroke-width:2.6}
 .hero{overflow-x:clip}
 @media (max-width:640px){.l-l{left:-1%}.l-r{right:-1%}.l-l,.l-r{width:44%}}
+@media (min-width:961px){.js .steps{padding-bottom:26vh}}
+.tour{overflow-x:clip}

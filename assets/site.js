@@ -63,14 +63,21 @@
       $$('[data-r], .ring').forEach(function (el) { io.observe(el); });
     }
 
-    /* ---- Tour delle funzioni: lo schermo cambia mentre scorrono i testi ---- */
-    var steps = $$('.step'), shots = $$('.tour-stage .shot'), dots = $$('.dots i');
+    /* ---- Tour delle funzioni: a ogni passo cambia l'intera composizione di schermate ---- */
+    var steps = $$('.step'), comps = $$('.tour-stage .comp'), dots = $$('.dots i'), cap = d.querySelector('.stage-cap');
     function setStep(i) {
       steps.forEach(function (s, k) { s.classList.toggle('on', k === i); });
-      shots.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+      comps.forEach(function (c, k) {
+        c.classList.toggle('on', k === i); c.classList.toggle('before', k < i); c.classList.toggle('after', k > i);
+        c.setAttribute('aria-hidden', k === i ? 'false' : 'true');
+      });
       dots.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+      if (cap && comps[i]) {
+        cap.textContent = comps[i].getAttribute('data-cap') || '';
+        cap.classList.remove('sw'); void cap.offsetWidth; cap.classList.add('sw');
+      }
     }
-    if (steps.length && shots.length) {
+    if (steps.length && comps.length) {
       setStep(0);
       if (hasIO) {
         var tio = new IntersectionObserver(function (es) {
@@ -78,6 +85,15 @@
         }, { rootMargin: '-48% 0px -48% 0px', threshold: 0 });
         steps.forEach(function (s) { tio.observe(s); });
       }
+    }
+    /* Composizioni nei passi (telefono/tablet): entrano quando compaiono */
+    var mobComps = $$('.step-comp .comp');
+    if (!hasIO || reduce()) { mobComps.forEach(function (c) { c.classList.add('on'); }); }
+    else {
+      var mio = new IntersectionObserver(function (es) {
+        es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('on'); mio.unobserve(en.target); } });
+      }, { threshold: 0.28 });
+      mobComps.forEach(function (c) { mio.observe(c); });
     }
 
     /* ---- Pausa delle animazioni infinite fuori schermo ---- */
