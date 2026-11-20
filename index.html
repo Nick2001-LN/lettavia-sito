@@ -9,7 +9,6 @@
 <meta name="theme-color" content="#FBF6EE" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1D1916" media="(prefers-color-scheme: dark)">
 <meta name="robots" content="noindex, nofollow">
-
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lettavia — il diario di lettura per iPhone">
 <meta property="og:description" content="Lettavia è un diario di lettura personale per iPhone: avanzamento, timer, note, statistiche, scanner ISBN, import da Goodreads e StoryGraph, backup. Nessun account.">
@@ -21,8 +20,13 @@
 <link rel="preload" href="assets/fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js"></script>
 </head>
-<body>
+<body id="top">
+<div class="ambient" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="scrollbar" aria-hidden="true"></div>
+<svg class="sr" aria-hidden="true" focusable="false" width="0" height="0"><defs><symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8v8M10.5 8v8M14 8v8M17 8v8"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol><symbol id="i-note" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 20V11M11 20V4M17 20v-6M3 20h18"/></symbol><symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2h5"/></symbol><symbol id="i-import" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></symbol><symbol id="i-export" viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M4 20h16"/></symbol><symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9M10 13h4"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 17v-6a6 6 0 0 1 12 0v6l2 2H4zM10 21h4"/></symbol><symbol id="i-widget" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></symbol><symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l2.4 5.6L20 11l-5.6 2.4L12 19l-2.4-5.6L4 11l5.6-2.4z"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol><symbol id="i-tag" viewBox="0 0 24 24"><path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.2"/></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></symbol><symbol id="i-userx" viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M3 21a7 7 0 0 1 13-3.5M16 8l5 5M21 8l-5 5"/></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M3 3l18 18"/></symbol><symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol></defs></svg>
 <a class="skip" href="#contenuto">Vai al contenuto</a>
 <header class="site-header">
 <div class="wrap">
@@ -41,206 +45,218 @@
 <main id="contenuto">
 <section class="hero" aria-labelledby="titolo-hero">
 <div class="wrap">
-<div>
+<div class="hero-copy">
 <p class="eyebrow">Diario di lettura per iPhone</p>
-<h1 id="titolo-hero">Ogni libro, <span class="light">il suo tempo.</span></h1>
+<h1 id="titolo-hero"><span class="ln"><span class="ln-i">Ogni libro,</span></span><span class="ln"><span class="ln-i light">il suo tempo.</span></span></h1>
 <p class="lead">Avanzamento, timer, note e statistiche in un unico diario di lettura, in italiano. Nessun account, nessun server.</p>
 <div class="cta-row"><!-- [LINK APP STORE] sostituire href="#" con il link ufficiale e questo pulsante con il badge ufficiale Apple "Scarica su App Store" -->
-<a class="store" href="#" aria-label="Scarica Lettavia su App Store (link in arrivo)"><small>Scarica su</small><strong>App Store</strong></a><a class="btn btn-ghost" href="#funzioni">Scopri le funzioni</a></div>
+<a class="store" href="#" aria-label="Scarica su App Store (link in arrivo)"><small>Scarica su</small> <strong>App Store</strong></a><a class="btn btn-ghost" href="#funzioni">Scopri le funzioni <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-down"/></svg></a></div>
 <p class="fine">Per iPhone &middot; In italiano &middot; Nessun account</p>
 </div>
-<div class="hero-visual"><figure class="phone"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/08-inlettura-pro-scuro-360.webp 360w, assets/img/08-inlettura-pro-scuro-640.webp 640w" sizes="(max-width:960px) 70vw, 320px"><img src="assets/img/01-inlettura-pro-chiaro-640.webp" srcset="assets/img/01-inlettura-pro-chiaro-360.webp 360w, assets/img/01-inlettura-pro-chiaro-640.webp 640w" sizes="(max-width:960px) 70vw, 320px" width="640" height="1388" alt="Schermata In lettura di Lettavia: il libro «Il barone rampante» di Italo Calvino a pagina 180 di 300, con il pulsante Aggiorna lettura e l'obiettivo dell'anno." fetchpriority="high" decoding="async"></picture></figure></div>
+<div class="stage">
+<div class="stage-in">
+<span class="orbit o3"></span><span class="orbit o1"></span><span class="orbit o2"></span>
+<div class="layer l-l"><div class="fl"><div class="phone"><figure class="frame"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/09-libreria-scuro-360.webp 360w, assets/img/09-libreria-scuro-640.webp 640w" sizes="(max-width:960px) 30vw, 240px"><img src="assets/img/02-libreria-chiaro-640.webp" srcset="assets/img/02-libreria-chiaro-360.webp 360w, assets/img/02-libreria-chiaro-640.webp 640w" sizes="(max-width:960px) 30vw, 240px" width="640" height="1388" alt="Schermata Libreria di Lettavia: scaffale in vista a griglia con la ricerca, i filtri per stato e le copertine dei libri." fetchpriority="low" decoding="async"></picture></figure></div></div></div>
+<div class="layer l-r"><div class="fl"><div class="phone"><figure class="frame"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/10-progressi-pro-scuro-360.webp 360w, assets/img/10-progressi-pro-scuro-640.webp 640w" sizes="(max-width:960px) 30vw, 240px"><img src="assets/img/03-progressi-pro-chiaro-640.webp" srcset="assets/img/03-progressi-pro-chiaro-360.webp 360w, assets/img/03-progressi-pro-chiaro-640.webp 640w" sizes="(max-width:960px) 30vw, 240px" width="640" height="1388" alt="Schermata Progressi di Lettavia: sei letture previste nell'anno, tre concluse, con l'elenco delle letture concluse e quelle per genere." fetchpriority="low" decoding="async"></picture></figure></div></div></div>
+<div class="layer l-c"><div class="fl"><div class="phone"><figure class="frame"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/08-inlettura-pro-scuro-360.webp 360w, assets/img/08-inlettura-pro-scuro-640.webp 640w" sizes="(max-width:640px) 56vw, (max-width:960px) 270px, 320px"><img src="assets/img/01-inlettura-pro-chiaro-640.webp" srcset="assets/img/01-inlettura-pro-chiaro-360.webp 360w, assets/img/01-inlettura-pro-chiaro-640.webp 640w" sizes="(max-width:640px) 56vw, (max-width:960px) 270px, 320px" width="640" height="1388" alt="Schermata In lettura di Lettavia: il libro «Il barone rampante» di Italo Calvino a pagina 180 di 300, con il pulsante Aggiorna lettura e l'obiettivo dell'anno." fetchpriority="high" decoding="async"></picture></figure></div></div></div>
+<div class="layer l-ch1" aria-hidden="true"><div class="fl"><div class="chip"><svg class="ico chip-ring" width="40" height="40" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-opacity=".2"/><circle cx="12" cy="12" r="9" pathLength="100" stroke-dasharray="100" stroke-dashoffset="40" transform="rotate(-90 12 12)"/></svg><div><b>Pagina 180 di 300</b><span>Mancano 120 pagine</span></div></div></div></div>
+<div class="layer l-ch2" aria-hidden="true"><div class="fl"><div class="chip"><div><b>Obiettivo dell'anno</b><span>3 libri su 6</span><div class="mini"><i class="s50"></i></div></div></div></div></div>
+</div>
+</div>
 </div>
 </section>
-
-<div id="funzioni">
-<section class="feature" aria-labelledby="f1">
+<div class="marquee" aria-label="Funzioni di Lettavia" role="group"><div class="marquee-track"><ul><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-scan"/></svg>Scanner ISBN</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>Ricerca nel catalogo</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-timer"/></svg>Timer di lettura</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-note"/></svg>Note private</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chart"/></svg>Statistiche e progressi</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-import"/></svg>Import da Goodreads e StoryGraph</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-export"/></svg>Export CSV</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-archive"/></svg>Backup JSON e ZIP</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg>Promemoria di lettura</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-widget"/></svg>Widget per la Home</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg>Tema chiaro e scuro</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-spark"/></svg>Lettavia Pro</li></ul><ul aria-hidden="true"><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-scan"/></svg>Scanner ISBN</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>Ricerca nel catalogo</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-timer"/></svg>Timer di lettura</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-note"/></svg>Note private</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chart"/></svg>Statistiche e progressi</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-import"/></svg>Import da Goodreads e StoryGraph</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-export"/></svg>Export CSV</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-archive"/></svg>Backup JSON e ZIP</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg>Promemoria di lettura</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-widget"/></svg>Widget per la Home</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg>Tema chiaro e scuro</li><li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-spark"/></svg>Lettavia Pro</li></ul></div></div>
+<section class="tour" id="funzioni" aria-labelledby="tour-t">
 <div class="wrap">
-<div class="copy">
-<p class="eyebrow">In lettura</p>
-<h2 id="f1">Il libro di adesso, <span class="light">sempre in primo piano.</span></h2>
+<div class="sec-head" data-stagger>
+<p class="eyebrow" data-r>Le funzioni</p>
+<h2 id="tour-t" data-r>Dalla prima pagina <span class="light">all'ultima.</span></h2>
+<p data-r>Un diario pensato per accompagnare la lettura giorno dopo giorno, dall'aggiunta del libro al bilancio dell'anno.</p>
+</div>
+<div class="tour-grid">
+<div class="steps">
+<article class="step" data-r aria-labelledby="s0">
+<p class="step-n">01<b>In lettura</b></p>
+<h3 id="s0">Il libro di adesso, <span class="light">sempre in primo piano.</span></h3>
 <p>La schermata In lettura mette al centro il libro attivo, con l'avanzamento per pagine o per percentuale e il pulsante «Aggiorna lettura» a portata di pollice.</p>
-<ul class="ticks">
-<li>Avanzamento per pagine o percentuale, con le pagine mancanti</li>
-<li>Timer di lettura: a fine sessione il tempo entra nelle statistiche</li>
-<li>Frase del giorno e obiettivo annuale</li>
-</ul>
-</div>
-<div class="pair">
-<figure class="phone"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/08-inlettura-pro-scuro-360.webp 360w, assets/img/08-inlettura-pro-scuro-640.webp 640w" sizes="(max-width:640px) 45vw, 250px"><img src="assets/img/01-inlettura-pro-chiaro-640.webp" srcset="assets/img/01-inlettura-pro-chiaro-360.webp 360w, assets/img/01-inlettura-pro-chiaro-640.webp 640w" sizes="(max-width:640px) 45vw, 250px" width="640" height="1388" alt="Schermata In lettura di Lettavia: il libro «Il barone rampante» di Italo Calvino a pagina 180 di 300, con il pulsante Aggiorna lettura e l'obiettivo dell'anno." loading="lazy" decoding="async"></picture></figure>
-<figure class="phone"><picture><img src="assets/img/06-timer-chiaro-640.webp" srcset="assets/img/06-timer-chiaro-360.webp 360w, assets/img/06-timer-chiaro-640.webp 640w" sizes="(max-width:640px) 45vw, 250px" width="640" height="1388" alt="Schermata del timer di lettura di Lettavia con il tempo a 00:00 e i pulsanti Pausa e Termina." loading="lazy" decoding="async"></picture></figure>
-</div>
-</div>
-</section>
-
-<section class="feature flip" aria-labelledby="f2">
-<div class="wrap">
-<div class="copy">
-<p class="eyebrow">Libreria e aggiunta dei libri</p>
-<h2 id="f2">Lo scaffale, <span class="light">e tre modi per riempirlo.</span></h2>
-<p>La libreria raccoglie tutti i libri, in vista a lista o a griglia, con ricerca e filtri per stato: Da leggere, In lettura, Letti, Abbandonati.</p>
-<ul class="ticks">
-<li>Scanner del codice ISBN con la fotocamera</li>
-<li>Ricerca nel catalogo online, tra Google Books e Open Library</li>
-<li>Inserimento manuale, quando il libro non si trova</li>
-<li>Collezioni personali e generi per tenere ordine</li>
-</ul>
-</div>
-<div class="pair">
-<figure class="phone"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/09-libreria-scuro-360.webp 360w, assets/img/09-libreria-scuro-640.webp 640w" sizes="(max-width:640px) 45vw, 250px"><img src="assets/img/02-libreria-chiaro-640.webp" srcset="assets/img/02-libreria-chiaro-360.webp 360w, assets/img/02-libreria-chiaro-640.webp 640w" sizes="(max-width:640px) 45vw, 250px" width="640" height="1388" alt="Schermata Libreria di Lettavia: scaffale in vista a griglia con la ricerca, i filtri per stato e le copertine dei libri." loading="lazy" decoding="async"></picture></figure>
-<figure class="phone"><picture><img src="assets/img/05-catalogo-chiaro-640.webp" srcset="assets/img/05-catalogo-chiaro-360.webp 360w, assets/img/05-catalogo-chiaro-640.webp 640w" sizes="(max-width:640px) 45vw, 250px" width="640" height="1388" alt="Schermata Cerca nel catalogo di Lettavia: risultati per «Calvino» con titolo, autore, anno e numero di pagine, e l'icona dello scanner ISBN." loading="lazy" decoding="async"></picture></figure>
-</div>
-</div>
-</section>
-
-<section class="feature" aria-labelledby="f3">
-<div class="wrap">
-<div class="copy">
-<p class="eyebrow">Progressi</p>
-<h2 id="f3">L'anno di lettura, <span class="light">a colpo d'occhio.</span></h2>
+<ul class="ticks"><li>Avanzamento per pagine o percentuale, con le pagine mancanti</li><li>Frase del giorno e obiettivo annuale</li></ul>
+<div class="step-phone"><div class="phone"><figure class="frame"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/08-inlettura-pro-scuro-360.webp 360w, assets/img/08-inlettura-pro-scuro-640.webp 640w" sizes="(max-width:960px) 72vw, 300px"><img src="assets/img/01-inlettura-pro-chiaro-640.webp" srcset="assets/img/01-inlettura-pro-chiaro-360.webp 360w, assets/img/01-inlettura-pro-chiaro-640.webp 640w" sizes="(max-width:960px) 72vw, 300px" width="640" height="1388" alt="Schermata In lettura di Lettavia: il libro «Il barone rampante» di Italo Calvino a pagina 180 di 300, con il pulsante Aggiorna lettura e l'obiettivo dell'anno." loading="lazy" decoding="async"></picture></figure></div></div>
+</article>
+<article class="step" data-r aria-labelledby="s1">
+<p class="step-n">02<b>Timer di lettura</b></p>
+<h3 id="s1">Ogni sessione, <span class="light">il suo tempo.</span></h3>
+<p>Il timer accompagna la lettura con i comandi Pausa e Termina. A fine sessione il tempo entra nelle statistiche.</p>
+<ul class="ticks"><li>Un tocco per avviare, mettere in pausa e concludere</li><li>Il tempo letto confluisce nei numeri dell'anno</li></ul>
+<div class="step-phone"><div class="phone"><figure class="frame"><picture><img class="lo" src="assets/img/06-timer-chiaro-640.webp" srcset="assets/img/06-timer-chiaro-360.webp 360w, assets/img/06-timer-chiaro-640.webp 640w" sizes="(max-width:960px) 72vw, 300px" width="640" height="1388" alt="Schermata del timer di lettura di Lettavia con il tempo a 00:00 e i pulsanti Pausa e Termina." loading="lazy" decoding="async"></picture></figure></div></div>
+</article>
+<article class="step" data-r aria-labelledby="s2">
+<p class="step-n">03<b>Libreria</b></p>
+<h3 id="s2">Lo scaffale, <span class="light">a lista o a griglia.</span></h3>
+<p>La libreria raccoglie tutti i libri, con ricerca e filtri per stato: Da leggere, In lettura, Letti, Abbandonati.</p>
+<ul class="ticks"><li>Vista a lista o a griglia</li><li>Ricerca e filtri per stato</li><li>Collezioni e generi, con filtri e gruppi in Lettavia Pro</li></ul>
+<div class="step-phone"><div class="phone"><figure class="frame"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/09-libreria-scuro-360.webp 360w, assets/img/09-libreria-scuro-640.webp 640w" sizes="(max-width:960px) 72vw, 300px"><img src="assets/img/02-libreria-chiaro-640.webp" srcset="assets/img/02-libreria-chiaro-360.webp 360w, assets/img/02-libreria-chiaro-640.webp 640w" sizes="(max-width:960px) 72vw, 300px" width="640" height="1388" alt="Schermata Libreria di Lettavia: scaffale in vista a griglia con la ricerca, i filtri per stato e le copertine dei libri." loading="lazy" decoding="async"></picture></figure></div></div>
+</article>
+<article class="step" data-r aria-labelledby="s3">
+<p class="step-n">04<b>Aggiungere libri</b></p>
+<h3 id="s3">Tre modi <span class="light">per riempire lo scaffale.</span></h3>
+<p>Un libro entra in libreria senza ricopiare i dati a mano.</p>
+<ul class="ticks"><li>Scanner del codice ISBN con la fotocamera</li><li>Ricerca nel catalogo online, tra Google Books e Open Library</li><li>Inserimento manuale, quando il libro non si trova</li></ul>
+<div class="step-phone"><div class="phone"><figure class="frame"><picture><img class="lo" src="assets/img/05-catalogo-chiaro-640.webp" srcset="assets/img/05-catalogo-chiaro-360.webp 360w, assets/img/05-catalogo-chiaro-640.webp 640w" sizes="(max-width:960px) 72vw, 300px" width="640" height="1388" alt="Schermata Cerca nel catalogo di Lettavia: risultati per «Calvino» con titolo, autore, anno e numero di pagine, e l'icona dello scanner ISBN." loading="lazy" decoding="async"></picture></figure></div></div>
+</article>
+<article class="step" data-r aria-labelledby="s4">
+<p class="step-n">05<b>Progressi</b></p>
+<h3 id="s4">L'anno di lettura, <span class="light">a colpo d'occhio.</span></h3>
 <p>Le statistiche dell'anno mostrano a che punto è l'obiettivo, quali libri sono stati conclusi e come si distribuiscono le letture per genere, con una cronologia da sfogliare.</p>
-<ul class="ticks">
-<li>Obiettivo annuale con avanzamento</li>
-<li>Libri conclusi, in lettura, da leggere e abbandonati</li>
-<li>Letture per genere e cronologia</li>
-<li>Con Lettavia Pro: velocità di lettura, serie di giorni e data prevista di fine</li>
-</ul>
-</div>
-<div class="pair single">
-<figure class="phone"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/10-progressi-pro-scuro-360.webp 360w, assets/img/10-progressi-pro-scuro-640.webp 640w" sizes="(max-width:640px) 68vw, 290px"><img src="assets/img/03-progressi-pro-chiaro-640.webp" srcset="assets/img/03-progressi-pro-chiaro-360.webp 360w, assets/img/03-progressi-pro-chiaro-640.webp 640w" sizes="(max-width:640px) 68vw, 290px" width="640" height="1388" alt="Schermata Progressi di Lettavia: sei letture previste nell'anno, tre concluse, con l'elenco delle letture concluse e quelle per genere." loading="lazy" decoding="async"></picture></figure>
-</div>
-</div>
-</section>
-
-<section class="feature flip" aria-labelledby="f4">
-<div class="wrap">
-<div class="copy">
-<p class="eyebrow">Note e backup</p>
-<h2 id="f4">Appunti privati, <span class="light">memoria al sicuro.</span></h2>
+<ul class="ticks"><li>Obiettivo annuale con avanzamento</li><li>Libri conclusi, in lettura, da leggere e abbandonati</li><li>Con Lettavia Pro: velocità di lettura, serie di giorni e data prevista di fine</li></ul>
+<div class="step-phone"><div class="phone"><figure class="frame"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/10-progressi-pro-scuro-360.webp 360w, assets/img/10-progressi-pro-scuro-640.webp 640w" sizes="(max-width:960px) 72vw, 300px"><img src="assets/img/03-progressi-pro-chiaro-640.webp" srcset="assets/img/03-progressi-pro-chiaro-360.webp 360w, assets/img/03-progressi-pro-chiaro-640.webp 640w" sizes="(max-width:960px) 72vw, 300px" width="640" height="1388" alt="Schermata Progressi di Lettavia: sei letture previste nell'anno, tre concluse, con l'elenco delle letture concluse e quelle per genere." loading="lazy" decoding="async"></picture></figure></div></div>
+</article>
+<article class="step" data-r aria-labelledby="s5">
+<p class="step-n">06<b>Note e backup</b></p>
+<h3 id="s5">Appunti privati, <span class="light">memoria al sicuro.</span></h3>
 <p>Ogni libro ha la sua scheda: note private, voto, date di inizio e fine e lo storico delle riletture. Tutto può essere esportato e salvato in un backup.</p>
-<ul class="ticks">
-<li>Note private per ogni libro</li>
-<li>Voto, date di inizio e fine, storico delle riletture</li>
-<li>Export in CSV</li>
-<li>Backup completi in JSON o ZIP</li>
-</ul>
+<ul class="ticks"><li>Note private per ogni libro</li><li>Export in CSV</li><li>Backup completi in JSON o ZIP</li></ul>
+<div class="step-phone"><div class="phone"><figure class="frame"><picture><img class="lo" src="assets/img/04-dettaglio-chiaro-640.webp" srcset="assets/img/04-dettaglio-chiaro-360.webp 360w, assets/img/04-dettaglio-chiaro-640.webp 640w" sizes="(max-width:960px) 72vw, 300px" width="640" height="1388" alt="Scheda libro di Lettavia con stato In lettura, avanzamento al 60%, note, genere, date e pagine, voto e storico delle letture." loading="lazy" decoding="async"></picture></figure></div></div>
+</article>
 </div>
-<div class="pair">
-<figure class="phone"><picture><img src="assets/img/04-dettaglio-chiaro-640.webp" srcset="assets/img/04-dettaglio-chiaro-360.webp 360w, assets/img/04-dettaglio-chiaro-640.webp 640w" sizes="(max-width:640px) 45vw, 250px" width="640" height="1388" alt="Scheda libro di Lettavia con stato In lettura, avanzamento al 60%, note, genere, date e pagine, voto e storico delle letture." loading="lazy" decoding="async"></picture></figure>
-<figure class="phone"><picture><img src="assets/img/07-nota-chiaro-640.webp" srcset="assets/img/07-nota-chiaro-360.webp 360w, assets/img/07-nota-chiaro-640.webp 640w" sizes="(max-width:640px) 45vw, 250px" width="640" height="1388" alt="Schermata di scrittura di una nota privata in Lettavia, con i comandi Annulla e Salva." loading="lazy" decoding="async"></picture></figure>
+<div class="stage-col" aria-hidden="false">
+<div class="tour-stage"><span class="tour-glow"></span><div class="shot"><div class="phone"><figure class="frame"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/08-inlettura-pro-scuro-360.webp 360w, assets/img/08-inlettura-pro-scuro-640.webp 640w" sizes="340px"><img src="assets/img/01-inlettura-pro-chiaro-640.webp" srcset="assets/img/01-inlettura-pro-chiaro-360.webp 360w, assets/img/01-inlettura-pro-chiaro-640.webp 640w" sizes="340px" width="640" height="1388" alt="Schermata In lettura di Lettavia: il libro «Il barone rampante» di Italo Calvino a pagina 180 di 300, con il pulsante Aggiorna lettura e l'obiettivo dell'anno." decoding="async"></picture></figure></div></div><div class="shot"><div class="phone"><figure class="frame"><picture><img class="lo" src="assets/img/06-timer-chiaro-640.webp" srcset="assets/img/06-timer-chiaro-360.webp 360w, assets/img/06-timer-chiaro-640.webp 640w" sizes="340px" width="640" height="1388" alt="Schermata del timer di lettura di Lettavia con il tempo a 00:00 e i pulsanti Pausa e Termina." loading="lazy" decoding="async"></picture></figure></div></div><div class="shot"><div class="phone"><figure class="frame"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/09-libreria-scuro-360.webp 360w, assets/img/09-libreria-scuro-640.webp 640w" sizes="340px"><img src="assets/img/02-libreria-chiaro-640.webp" srcset="assets/img/02-libreria-chiaro-360.webp 360w, assets/img/02-libreria-chiaro-640.webp 640w" sizes="340px" width="640" height="1388" alt="Schermata Libreria di Lettavia: scaffale in vista a griglia con la ricerca, i filtri per stato e le copertine dei libri." loading="lazy" decoding="async"></picture></figure></div></div><div class="shot"><div class="phone"><figure class="frame"><picture><img class="lo" src="assets/img/05-catalogo-chiaro-640.webp" srcset="assets/img/05-catalogo-chiaro-360.webp 360w, assets/img/05-catalogo-chiaro-640.webp 640w" sizes="340px" width="640" height="1388" alt="Schermata Cerca nel catalogo di Lettavia: risultati per «Calvino» con titolo, autore, anno e numero di pagine, e l'icona dello scanner ISBN." loading="lazy" decoding="async"></picture></figure></div></div><div class="shot"><div class="phone"><figure class="frame"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/img/10-progressi-pro-scuro-360.webp 360w, assets/img/10-progressi-pro-scuro-640.webp 640w" sizes="340px"><img src="assets/img/03-progressi-pro-chiaro-640.webp" srcset="assets/img/03-progressi-pro-chiaro-360.webp 360w, assets/img/03-progressi-pro-chiaro-640.webp 640w" sizes="340px" width="640" height="1388" alt="Schermata Progressi di Lettavia: sei letture previste nell'anno, tre concluse, con l'elenco delle letture concluse e quelle per genere." loading="lazy" decoding="async"></picture></figure></div></div><div class="shot"><div class="phone"><figure class="frame"><picture><img class="lo" src="assets/img/04-dettaglio-chiaro-640.webp" srcset="assets/img/04-dettaglio-chiaro-360.webp 360w, assets/img/04-dettaglio-chiaro-640.webp 640w" sizes="340px" width="640" height="1388" alt="Scheda libro di Lettavia con stato In lettura, avanzamento al 60%, note, genere, date e pagine, voto e storico delle letture." loading="lazy" decoding="async"></picture></figure></div></div></div>
+<div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
 </div>
 </div>
 </section>
-</div>
-
-<section class="pad band" aria-labelledby="altro">
+<section class="pad band" id="progressi" aria-labelledby="st-t">
 <div class="wrap">
-<div class="sec-head">
-<p class="eyebrow">E ancora</p>
-<h2 id="altro">Pensata per accompagnare, <span class="light">non per distrarre.</span></h2>
+<div class="sec-head center" data-stagger>
+<p class="eyebrow" data-r>Progressi</p>
+<h2 id="st-t" data-r>I numeri della lettura, <span class="light">sempre sott'occhio.</span></h2>
+<p data-r>Lettavia tiene il conto dell'avanzamento del libro, dell'obiettivo dell'anno e del ritmo di lettura.</p>
 </div>
-<div class="grid">
-<article class="card"><h3>Promemoria di lettura</h3><p>Lettavia ti ricorda di leggere con notifiche di promemoria.</p></article>
-<article class="card"><h3>Widget per la Home</h3><p>Un widget per la schermata Home di iPhone tiene la lettura a portata di sguardo.</p></article>
-<article class="card"><h3>Scanner ISBN</h3><p>La fotocamera legge il codice a barre e il libro arriva nello scaffale.</p></article>
-<article class="card"><h3>Collezioni e generi</h3><p>Raggruppare i libri per collezione o per genere, con filtri e gruppi (Lettavia Pro).</p></article>
-<article class="card"><h3>Tema chiaro e scuro</h3><p>Interfaccia disponibile in tema chiaro e in tema scuro.</p></article>
-<article class="card"><h3>In italiano</h3><p>Interfaccia e testi pensati per chi legge in italiano.</p></article>
+<div class="stats" data-stagger>
+<article class="stat" data-r>
+<div class="ring v60" role="img" aria-label="Avanzamento del libro: 60%"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="42" pathLength="100"/><circle class="bar" cx="50" cy="50" r="42" pathLength="100"/></svg><div class="num"><span><span data-count="60">60</span><small>%</small></span></div></div>
+<div><h3>Avanzamento del libro</h3><p class="cap">Pagina 180 di 300, con le pagine mancanti.</p></div>
+</article>
+<article class="stat" data-r>
+<div class="ring v50" role="img" aria-label="Obiettivo dell'anno: 3 libri su 6"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="42" pathLength="100"/><circle class="bar" cx="50" cy="50" r="42" pathLength="100"/></svg><div class="num"><span><span data-count="3">3</span><small>/6</small></span></div></div>
+<div><h3>Obiettivo dell'anno</h3><p class="cap">Tre libri conclusi su sei previsti.</p></div>
+</article>
+<article class="stat" data-r>
+<div class="ring big v14" role="img" aria-label="Ritmo di lettura: 14,8 pagine al giorno"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="42" pathLength="100"/><circle class="bar" cx="50" cy="50" r="42" pathLength="100"/></svg><div class="num"><span data-count="14.8" data-dec="1">14,8</span></div></div>
+<div><h3>Pagine al giorno</h3><p class="cap">Il ritmo di lettura, calcolato dall'app.</p></div>
+</article>
 </div>
+<p class="stats-note" data-r>Valori d'esempio, tratti dalle schermate dell'app. Con Lettavia Pro anche velocità di lettura, serie di giorni e data prevista di fine.</p>
 </div>
 </section>
-
-<section class="pad" id="dati" aria-labelledby="privacy-t">
+<section class="pad" aria-labelledby="altro">
+<div class="wrap">
+<div class="sec-head" data-stagger>
+<p class="eyebrow" data-r>E ancora</p>
+<h2 id="altro" data-r>Pensata per accompagnare, <span class="light">non per distrarre.</span></h2>
+</div>
+<div class="grid" data-stagger><article class="card" data-r><div class="ib"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg></div><h3>Promemoria di lettura</h3><p>Lettavia ti ricorda di leggere con notifiche di promemoria.</p></article><article class="card" data-r><div class="ib"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-widget"/></svg></div><h3>Widget per la Home</h3><p>Un widget per la schermata Home di iPhone tiene la lettura a portata di sguardo.</p></article><article class="card" data-r><div class="ib"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-scan"/></svg></div><h3>Scanner ISBN</h3><p>La fotocamera legge il codice a barre e il libro arriva nello scaffale.</p></article><article class="card" data-r><div class="ib"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg></div><h3>Collezioni e generi</h3><p>Raggruppare i libri per collezione o per genere, con filtri e gruppi (Lettavia Pro).</p></article><article class="card" data-r><div class="ib"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg></div><h3>Tema chiaro e scuro</h3><p>Interfaccia disponibile in tema chiaro e in tema scuro.</p></article><article class="card" data-r><div class="ib"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-globe"/></svg></div><h3>In italiano</h3><p>Interfaccia e testi pensati per chi legge in italiano.</p></article></div>
+</div>
+</section>
+<section class="pad band" id="dati" aria-labelledby="privacy-t">
 <div class="wrap privacy-grid">
-<div>
-<p class="eyebrow">Privacy</p>
-<h2 id="privacy-t">I tuoi dati <span class="light">restano tuoi.</span></h2>
-<p>Lettavia non richiede un account e non dispone di un server proprio: la libreria, le note e le statistiche restano sul telefono e nei backup che l'utente sceglie di creare.</p>
-<p>La ricerca nel catalogo online consulta Google Books e Open Library. <a href="privacy/">Informativa sulla privacy</a></p>
+<div data-stagger>
+<p class="eyebrow" data-r>Privacy</p>
+<h2 id="privacy-t" data-r>I tuoi dati <span class="light">restano tuoi.</span></h2>
+<p data-r>Lettavia non richiede un account e non dispone di un server proprio: la libreria, le note e le statistiche restano sul telefono e nei backup che l'utente sceglie di creare.</p>
+<p data-r>La ricerca nel catalogo online consulta Google Books e Open Library. <a href="privacy/">Informativa sulla privacy</a></p>
 </div>
-<div class="facts" role="list">
-<div class="fact" role="listitem"><b>Nessun account</b><span>Si apre l'app e si inizia a leggere.</span></div>
-<div class="fact" role="listitem"><b>Nessun server</b><span>I dati risiedono sul dispositivo.</span></div>
-<div class="fact" role="listitem"><b>Backup tuoi</b><span>Export CSV e backup JSON o ZIP, in mano all'utente.</span></div>
+<div class="facts" data-stagger>
+<div class="fact" data-r><div class="ib"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-userx"/></svg></div><div><b>Nessun account</b><span>Si apre l'app e si inizia a leggere.</span></div></div>
+<div class="fact" data-r><div class="ib"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-server"/></svg></div><div><b>Nessun server</b><span>I dati risiedono sul dispositivo.</span></div></div>
+<div class="fact" data-r><div class="ib"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-archive"/></svg></div><div><b>Backup tuoi</b><span>Export CSV e backup JSON o ZIP, in mano all'utente.</span></div></div>
 </div>
 </div>
 </section>
-
-<section class="pad band" id="pro" aria-labelledby="pro-t">
+<section class="pad" id="pro" aria-labelledby="pro-t">
 <div class="wrap pro-grid">
-<div>
-<p class="eyebrow">Lettavia Pro</p>
-<h2 id="pro-t" class="h2-lg">Di più, <span class="light">per chi legge molto.</span></h2>
-<p class="muted">Lettavia Pro è un acquisto in-app, annuale o mensile, che aggiunge strumenti per organizzare la libreria e leggere meglio i propri numeri.</p>
-<ul class="ticks">
-<li><b>Collezioni</b> personali per raggruppare i libri</li>
-<li><b>Statistiche dettagliate</b>: velocità di lettura, serie di giorni, data prevista di fine</li>
-<li><b>Generi</b> con filtri e gruppi</li>
-<li><b>Palette di colore</b> Salvia e Miele</li>
+<div data-stagger>
+<p class="eyebrow" data-r>Lettavia Pro</p>
+<h2 id="pro-t" data-r>Di più, <span class="light">per chi legge molto.</span></h2>
+<p class="muted" data-r>Lettavia Pro è un acquisto in-app, annuale o mensile, che aggiunge strumenti per organizzare la libreria e leggere meglio i propri numeri.</p>
+<ul class="ticks" data-stagger>
+<li data-r><b>Collezioni</b> personali per raggruppare i libri</li>
+<li data-r><b>Statistiche dettagliate</b>: velocità di lettura, serie di giorni, data prevista di fine</li>
+<li data-r><b>Generi</b> con filtri e gruppi</li>
+<li data-r><b>Palette di colore</b> Salvia e Miele</li>
 </ul>
 </div>
-<div class="pro-card">
+<div class="pro-card" data-r="s">
 <h3>Lettavia Pro</h3>
 <!-- [PREZZO] il prezzo non va scritto qui: resta il rimando all'App Store -->
 <p class="price">Prezzo sull'App Store</p>
 <p class="price-note">Abbonamento annuale o mensile, acquisto in-app.</p>
-<p>Palette disponibili</p>
+<fieldset class="pal-demo"><legend>Palette di colore</legend>
 <div class="palettes">
-<span class="pal t"><i></i>Terracotta</span>
-<span class="pal s"><i></i>Salvia</span>
-<span class="pal m"><i></i>Miele</span>
+<input class="pal-in" type="radio" name="pal" id="p-terra" checked><label class="pal t" for="p-terra"><i></i>Terracotta</label>
+<input class="pal-in" type="radio" name="pal" id="p-salvia"><label class="pal s" for="p-salvia"><i></i>Salvia</label>
+<input class="pal-in" type="radio" name="pal" id="p-miele"><label class="pal m" for="p-miele"><i></i>Miele</label>
 </div>
+<div class="pal-preview" aria-hidden="true"><div class="row"><span>Avanzamento</span><span>60%</span></div><div class="pal-bar"><i></i></div><div class="pal-btn">Aggiorna lettura</div></div>
+<p class="pal-hint">Anteprima del colore: Salvia e Miele sono incluse in Lettavia Pro.</p>
+</fieldset>
 </div>
 </div>
 </section>
-
-<section class="pad" id="importa" aria-labelledby="imp-t">
+<section class="pad band" id="importa" aria-labelledby="imp-t">
 <div class="wrap import">
-<div>
-<p class="eyebrow">Import ed export</p>
-<h2 id="imp-t">Arrivi da Goodreads o StoryGraph? <span class="light">Porta con te la tua libreria.</span></h2>
-<p>I libri già catalogati altrove non vanno ricopiati a mano: Lettavia importa le librerie esportate da Goodreads e da StoryGraph, oltre ai file CSV.</p>
+<div data-stagger>
+<p class="eyebrow" data-r>Import ed export</p>
+<h2 id="imp-t" data-r>Arrivi da Goodreads o StoryGraph? <span class="light">Porta con te la tua libreria.</span></h2>
+<p data-r>I libri già catalogati altrove non vanno ricopiati a mano: Lettavia importa le librerie esportate da Goodreads e da StoryGraph, oltre ai file CSV.</p>
 </div>
-<div class="flow">
+<div class="flow" data-r="s">
 <div><p class="col-label">Importa da</p><ul class="chips"><li>Goodreads</li><li>StoryGraph</li><li>CSV</li></ul></div>
+<div class="hub"><img src="assets/img/icona-180.png" width="72" height="72" alt="Icona di Lettavia" loading="lazy" decoding="async"></div>
 <div><p class="col-label">Esporta e salva</p><ul class="chips out"><li>CSV</li><li>Backup JSON</li><li>Backup ZIP</li></ul></div>
 </div>
 </div>
 </section>
-
-<section class="pad band" id="faq" aria-labelledby="faq-t">
-<div class="wrap">
-<div class="sec-head"><p class="eyebrow">Domande frequenti</p><h2 id="faq-t">Prima di iniziare</h2></div>
-<div class="faq">
-<details><summary>Quanto costa Lettavia?</summary><div><p>L'app si scarica dall'App Store. Lettavia Pro è un acquisto in-app, annuale o mensile, che sblocca collezioni, statistiche dettagliate, generi con filtri e gruppi e le palette Salvia e Miele. Il prezzo aggiornato è sempre indicato sull'App Store.</p></div></details>
-<details><summary>Serve un account? Che fine fanno i dati?</summary><div><p>Non serve nessun account e non esiste un server di Lettavia. La libreria, le note e le statistiche restano sul telefono e nei backup creati dall'utente.</p></div></details>
-<details><summary>Come si importa una libreria da Goodreads o StoryGraph?</summary><div><p>Lettavia importa i file esportati da Goodreads e da StoryGraph, oltre a file CSV. Dopo l'import i libri compaiono nello scaffale.</p></div></details>
-<details><summary>Come si fa un backup?</summary><div><p>Lettavia crea backup completi in formato JSON o ZIP e permette di esportare la libreria in CSV. I file restano nelle mani dell'utente, che può conservarli dove preferisce.</p></div></details>
-<details><summary>C'è un widget per la schermata Home?</summary><div><p>Sì. Il widget di Lettavia si aggiunge dalla schermata Home di iPhone: pressione prolungata su uno spazio vuoto, tasto «+» e ricerca di Lettavia.</p></div></details>
-<details><summary>I dati si sincronizzano tra più dispositivi?</summary><div><p>No. Lettavia non ha sincronizzazione cloud: i dati risiedono sul dispositivo in uso. Per spostare la libreria su un altro telefono si usano i backup.</p></div></details>
+<section class="pad" id="faq" aria-labelledby="faq-t">
+<div class="wrap faq-wrap">
+<div class="sec-head" data-stagger><p class="eyebrow" data-r>Domande frequenti</p><h2 id="faq-t" data-r>Prima di iniziare</h2><p data-r>Altre risposte nella pagina <a href="supporto/">Supporto</a>.</p></div>
+<div class="faq" data-stagger>
+<details data-r><summary>Quanto costa Lettavia?</summary><div class="faq-body"><div class="faq-in"><p>L'app si scarica dall'App Store. Lettavia Pro è un acquisto in-app, annuale o mensile, che sblocca collezioni, statistiche dettagliate, generi con filtri e gruppi e le palette Salvia e Miele. Il prezzo aggiornato è sempre indicato sull'App Store.</p></div></div></details>
+<details data-r><summary>Serve un account? Che fine fanno i dati?</summary><div class="faq-body"><div class="faq-in"><p>Non serve nessun account e non esiste un server di Lettavia. La libreria, le note e le statistiche restano sul telefono e nei backup creati dall'utente.</p></div></div></details>
+<details data-r><summary>Come si importa una libreria da Goodreads o StoryGraph?</summary><div class="faq-body"><div class="faq-in"><p>Lettavia importa i file esportati da Goodreads e da StoryGraph, oltre a file CSV. Dopo l'import i libri compaiono nello scaffale.</p></div></div></details>
+<details data-r><summary>Come si fa un backup?</summary><div class="faq-body"><div class="faq-in"><p>Lettavia crea backup completi in formato JSON o ZIP e permette di esportare la libreria in CSV. I file restano nelle mani dell'utente, che può conservarli dove preferisce.</p></div></div></details>
+<details data-r><summary>C'è un widget per la schermata Home?</summary><div class="faq-body"><div class="faq-in"><p>Sì. Il widget di Lettavia si aggiunge dalla schermata Home di iPhone: pressione prolungata su uno spazio vuoto, tasto «+» e ricerca di Lettavia.</p></div></div></details>
+<details data-r><summary>I dati si sincronizzano tra più dispositivi?</summary><div class="faq-body"><div class="faq-in"><p>No. Lettavia non ha sincronizzazione cloud: i dati risiedono sul dispositivo in uso. Per spostare la libreria su un altro telefono si usano i backup.</p></div></div></details>
 </div>
-<p class="more">Altre risposte nella pagina <a href="supporto/">Supporto</a>.</p>
 </div>
 </section>
 
-<section class="pad final" aria-labelledby="fin-t">
+<section class="final" aria-labelledby="fin-t">
 <div class="wrap">
+<div class="final-card" data-r="s">
+<span class="ring-d r1"></span><span class="ring-d r2"></span>
 <h2 id="fin-t">Il prossimo libro <span class="light">comincia da qui.</span></h2>
 <p>Lettavia sarà disponibile su App Store.</p>
 <div class="cta-row"><!-- [LINK APP STORE] sostituire href="#" con il link ufficiale e questo pulsante con il badge ufficiale Apple "Scarica su App Store" -->
-<a class="store" href="#" aria-label="Scarica Lettavia su App Store (link in arrivo)"><small>Scarica su</small><strong>App Store</strong></a></div>
+<a class="store" href="#" aria-label="Scarica su App Store (link in arrivo)"><small>Scarica su</small> <strong>App Store</strong></a></div>
+</div>
 </div>
 </section>
 </main>
 <footer class="site-footer">
-<div class="wrap">
-<div class="foot-brand"><svg viewBox="0 0 312 392" aria-hidden="true" focusable="false"><path fill="currentColor" d="M40 0H270A40 40 0 0 1 310 40V362Q310 390 289 390L159 274Q154 269 149 274L21 390Q0 390 0 362V40A40 40 0 0 1 40 0Z"/></svg><div><b>Lettavia</b><p>Il diario di lettura personale per iPhone.</p></div></div>
-<ul class="foot-nav">
+<div class="wrap foot">
+<div class="foot-brand-col"><div class="foot-brand"><svg viewBox="0 0 312 392" aria-hidden="true" focusable="false"><path fill="currentColor" d="M40 0H270A40 40 0 0 1 310 40V362Q310 390 289 390L159 274Q154 269 149 274L21 390Q0 390 0 362V40A40 40 0 0 1 40 0Z"/></svg><div><b>Lettavia</b><p>Il diario di lettura personale per iPhone. Nessun account, nessun server.</p></div></div></div>
+<nav aria-label="Sito"><p class="foot-h">Il sito</p><ul>
+<li><a href="#funzioni">Funzioni</a></li>
+<li><a href="#pro">Lettavia Pro</a></li>
+<li><a href="#faq">Domande frequenti</a></li>
+</ul></nav>
+<nav aria-label="Informazioni"><p class="foot-h">Informazioni</p><ul>
+<li><a href="supporto/">Supporto</a></li>
 <li><a href="privacy/">Privacy</a></li>
 <li><a href="termini/">Termini</a></li>
-<li><a href="supporto/">Supporto</a></li>
-</ul>
-<p class="legal-line">&copy; Lettavia. Tutti i diritti riservati. Apple, iPhone e App Store sono marchi di Apple Inc.</p>
+</ul></nav>
+<div class="legal-line"><p>&copy; Lettavia. Tutti i diritti riservati. Apple, iPhone e App Store sono marchi di Apple Inc.</p><a href="#top">Torna su</a></div>
 </div>
 </footer>
 </body>
