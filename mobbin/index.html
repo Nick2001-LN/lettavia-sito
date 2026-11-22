@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lettavia — il diario di lettura per iPhone</title>
+<meta name="description" content="Lettavia è un diario di lettura personale per iPhone: avanzamento, timer, note, statistiche, scanner ISBN, import ed export CSV, backup. Nessun account.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FBF6EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1D1916" media="(prefers-color-scheme: dark)">
+<!-- [DA COMPLETARE] og:image, og:url e canonical richiedono l'URL definitivo del sito. -->
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/img/icona-180.png">
+<link rel="preload" href="../assets/fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="../assets/../concepts/boot.js"></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenuto">Vai al contenuto</a>
+<header class="bar" id="bar">
+<div class="bar-in">
+<a class="brand" href="./" aria-label="Lettavia, pagina iniziale"><img src="../assets/img/icona-96.webp" width="30" height="30" alt="">Lettavia</a>
+<nav class="links" aria-label="Principale"><a href="#funzioni">Funzioni</a><a href="#dati">Privacy</a><a href="#pro">Pro</a><a href="#faq">FAQ</a><a href="supporto/">Supporto</a></nav>
+<!-- [LINK APP STORE] -->
+<a class="bar-cta" href="#scarica">Scarica</a>
+</div>
+</header>
+<main id="contenuto">
+
+<section class="hero" aria-labelledby="h-hero">
+<div class="hero-glow" aria-hidden="true"></div>
+<div class="wrap hero-copy">
+<p class="badge rv"><span class="dot" aria-hidden="true"></span>Diario di lettura per iPhone</p>
+<h1 id="h-hero" class="rv">Ogni libro,<br><em>al suo posto.</em></h1>
+<p class="lead rv">Avanzamento, timer, note e statistiche in un unico diario di lettura, in italiano. Nessun account, nessun server.</p>
+<div class="cta-row rv"><!-- [LINK APP STORE] sostituire href="#" con il link ufficiale e il pulsante con il badge ufficiale Apple "Scarica su App Store" -->
+<a class="store" href="#" aria-label="Scarica su App Store (link in arrivo)"><small>Scarica su</small><strong>App Store</strong></a><a class="btn-ghost" href="#funzioni">Scopri le funzioni <svg class="ic-s" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
+</div>
+<div class="hero-stage" aria-hidden="false">
+<div class="hp hp-l"><div class="par"><div class="ph"><div class="fr"><picture class=""><source media="(prefers-color-scheme: dark)" srcset="../assets/img/09-libreria-scuro-360.webp 360w, ../assets/img/09-libreria-scuro-640.webp 640w" sizes="(max-width: 760px) 150px, 250px"><img src="../assets/img/02-libreria-chiaro-640.webp" srcset="../assets/img/02-libreria-chiaro-360.webp 360w, ../assets/img/02-libreria-chiaro-640.webp 640w" sizes="(max-width: 760px) 150px, 250px" width="640" height="1387" alt="Schermata Libreria di Lettavia con i libri e i filtri per stato" loading="lazy" decoding="async"></picture></div></div></div></div>
+<div class="hp hp-r"><div class="par"><div class="ph"><div class="fr"><picture class=""><source media="(prefers-color-scheme: dark)" srcset="../assets/img/10-progressi-pro-scuro-360.webp 360w, ../assets/img/10-progressi-pro-scuro-640.webp 640w" sizes="(max-width: 760px) 150px, 250px"><img src="../assets/img/03-progressi-pro-chiaro-640.webp" srcset="../assets/img/03-progressi-pro-chiaro-360.webp 360w, ../assets/img/03-progressi-pro-chiaro-640.webp 640w" sizes="(max-width: 760px) 150px, 250px" width="640" height="1387" alt="Schermata Progressi di Lettavia con l&#x27;obiettivo dell&#x27;anno" loading="lazy" decoding="async"></picture></div></div></div></div>
+<div class="hp hp-c"><div class="par"><div class="ph"><div class="fr"><picture class=""><source media="(prefers-color-scheme: dark)" srcset="../assets/img/08-inlettura-pro-scuro-360.webp 360w, ../assets/img/08-inlettura-pro-scuro-640.webp 640w" sizes="(max-width: 760px) 190px, 300px"><img src="../assets/img/01-inlettura-pro-chiaro-640.webp" srcset="../assets/img/01-inlettura-pro-chiaro-360.webp 360w, ../assets/img/01-inlettura-pro-chiaro-640.webp 640w" sizes="(max-width: 760px) 190px, 300px" width="640" height="1387" alt="Schermata In lettura di Lettavia con il libro attivo e l&#x27;avanzamento" loading="eager" fetchpriority="high" decoding="async"></picture></div></div></div></div>
+</div>
+<div class="hero-arc" aria-hidden="true"></div>
+</section>
+
+<section class="sec feats" id="funzioni" aria-labelledby="h-funzioni">
+<div class="wrap feats-grid">
+<div class="feats-copy">
+<p class="eyebrow rv">Funzioni</p>
+<h2 id="h-funzioni" class="rv">Dalla prima pagina<br>all'ultima.</h2>
+<ul class="feat-list rv" role="tablist" aria-orientation="vertical" aria-label="Funzioni di Lettavia">
+<li><button class="feat on" type="button" role="tab" id="tab-inlettura" aria-selected="true" aria-controls="vetrina" tabindex="0" data-i="0">
+<span class="feat-h"><span class="feat-t">In lettura e timer</span><span class="feat-ind" aria-hidden="true"><svg class="ring" viewBox="0 0 36 36"><circle class="ring-bg" cx="18" cy="18" r="15"/><circle class="ring-fg" cx="18" cy="18" r="15"/></svg><svg class="ar" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+<span class="feat-d"><span class="feat-d-in">Il libro attivo in primo piano, con avanzamento per pagine o percentuale e il pulsante «Aggiorna lettura». Il timer, con Pausa e Termina, porta il tempo nelle statistiche.</span></span>
+</button></li>
+<li><button class="feat" type="button" role="tab" id="tab-libreria" aria-selected="false" aria-controls="vetrina" tabindex="-1" data-i="1">
+<span class="feat-h"><span class="feat-t">Libreria</span><span class="feat-ind" aria-hidden="true"><svg class="ring" viewBox="0 0 36 36"><circle class="ring-bg" cx="18" cy="18" r="15"/><circle class="ring-fg" cx="18" cy="18" r="15"/></svg><svg class="ar" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+<span class="feat-d"><span class="feat-d-in">Tutti i libri in un posto, a lista o a griglia, con ricerca e filtri per stato: Da leggere, In lettura, Letti, Abbandonati.</span></span>
+</button></li>
+<li><button class="feat" type="button" role="tab" id="tab-aggiungere" aria-selected="false" aria-controls="vetrina" tabindex="-1" data-i="2">
+<span class="feat-h"><span class="feat-t">Aggiungere un libro</span><span class="feat-ind" aria-hidden="true"><svg class="ring" viewBox="0 0 36 36"><circle class="ring-bg" cx="18" cy="18" r="15"/><circle class="ring-fg" cx="18" cy="18" r="15"/></svg><svg class="ar" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+<span class="feat-d"><span class="feat-d-in">Tre strade: scanner del codice ISBN con la fotocamera, ricerca nel catalogo di Google Books e Open Library, inserimento manuale.</span></span>
+</button></li>
+<li><button class="feat" type="button" role="tab" id="tab-progressi" aria-selected="false" aria-controls="vetrina" tabindex="-1" data-i="3">
+<span class="feat-h"><span class="feat-t">Progressi</span><span class="feat-ind" aria-hidden="true"><svg class="ring" viewBox="0 0 36 36"><circle class="ring-bg" cx="18" cy="18" r="15"/><circle class="ring-fg" cx="18" cy="18" r="15"/></svg><svg class="ar" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+<span class="feat-d"><span class="feat-d-in">Obiettivo dell'anno, libri conclusi, letture per genere e cronologia. Con Lettavia Pro anche velocità, serie di giorni e data prevista di fine.</span></span>
+</button></li>
+<li><button class="feat" type="button" role="tab" id="tab-note" aria-selected="false" aria-controls="vetrina" tabindex="-1" data-i="4">
+<span class="feat-h"><span class="feat-t">Note e backup</span><span class="feat-ind" aria-hidden="true"><svg class="ring" viewBox="0 0 36 36"><circle class="ring-bg" cx="18" cy="18" r="15"/><circle class="ring-fg" cx="18" cy="18" r="15"/></svg><svg class="ar" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+<span class="feat-d"><span class="feat-d-in">Ogni libro ha la sua scheda con note private, voto e date. La libreria si esporta in CSV e si salva in backup completi JSON o ZIP.</span></span>
+</button></li>
+</ul>
+</div>
+<div class="vetrina" id="vetrina" role="tabpanel" aria-labelledby="tab-inlettura" aria-live="polite">
+<div class="v-glow" aria-hidden="true"></div>
+<div class="ph v-back" aria-hidden="true"><div class="fr"><picture class="sl on dim"><img src="../assets/img/06-timer-chiaro-640.webp" srcset="../assets/img/06-timer-chiaro-360.webp 360w, ../assets/img/06-timer-chiaro-640.webp 640w" sizes="(max-width: 860px) 160px, 240px" width="640" height="1387" alt="" loading="lazy" decoding="async"></picture><picture class="sl dim"><img src="../assets/img/04-dettaglio-chiaro-640.webp" srcset="../assets/img/04-dettaglio-chiaro-360.webp 360w, ../assets/img/04-dettaglio-chiaro-640.webp 640w" sizes="(max-width: 860px) 160px, 240px" width="640" height="1387" alt="" loading="lazy" decoding="async"></picture><picture class="sl"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/09-libreria-scuro-360.webp 360w, ../assets/img/09-libreria-scuro-640.webp 640w" sizes="(max-width: 860px) 160px, 240px"><img src="../assets/img/02-libreria-chiaro-640.webp" srcset="../assets/img/02-libreria-chiaro-360.webp 360w, ../assets/img/02-libreria-chiaro-640.webp 640w" sizes="(max-width: 860px) 160px, 240px" width="640" height="1387" alt="" loading="lazy" decoding="async"></picture><picture class="sl"><img src="../assets/img/10-progressi-pro-scuro-640.webp" srcset="../assets/img/10-progressi-pro-scuro-360.webp 360w, ../assets/img/10-progressi-pro-scuro-640.webp 640w" sizes="(max-width: 860px) 160px, 240px" width="640" height="1387" alt="" loading="lazy" decoding="async"></picture><picture class="sl dim"><img src="../assets/img/04-dettaglio-chiaro-640.webp" srcset="../assets/img/04-dettaglio-chiaro-360.webp 360w, ../assets/img/04-dettaglio-chiaro-640.webp 640w" sizes="(max-width: 860px) 160px, 240px" width="640" height="1387" alt="" loading="lazy" decoding="async"></picture></div></div>
+<div class="ph v-front"><div class="fr"><picture class="sl on"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/08-inlettura-pro-scuro-360.webp 360w, ../assets/img/08-inlettura-pro-scuro-640.webp 640w" sizes="(max-width: 860px) 200px, 300px"><img src="../assets/img/01-inlettura-pro-chiaro-640.webp" srcset="../assets/img/01-inlettura-pro-chiaro-360.webp 360w, ../assets/img/01-inlettura-pro-chiaro-640.webp 640w" sizes="(max-width: 860px) 200px, 300px" width="640" height="1387" alt="Schermata In lettura di Lettavia con il libro attivo e l&#x27;avanzamento" loading="eager" fetchpriority="high" decoding="async"></picture><picture class="sl"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/09-libreria-scuro-360.webp 360w, ../assets/img/09-libreria-scuro-640.webp 640w" sizes="(max-width: 860px) 200px, 300px"><img src="../assets/img/02-libreria-chiaro-640.webp" srcset="../assets/img/02-libreria-chiaro-360.webp 360w, ../assets/img/02-libreria-chiaro-640.webp 640w" sizes="(max-width: 860px) 200px, 300px" width="640" height="1387" alt="Schermata Libreria di Lettavia con i libri e i filtri per stato" loading="lazy" decoding="async"></picture><picture class="sl dim"><img src="../assets/img/05-catalogo-chiaro-640.webp" srcset="../assets/img/05-catalogo-chiaro-360.webp 360w, ../assets/img/05-catalogo-chiaro-640.webp 640w" sizes="(max-width: 860px) 200px, 300px" width="640" height="1387" alt="Ricerca nel catalogo di Lettavia" loading="lazy" decoding="async"></picture><picture class="sl"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/10-progressi-pro-scuro-360.webp 360w, ../assets/img/10-progressi-pro-scuro-640.webp 640w" sizes="(max-width: 860px) 200px, 300px"><img src="../assets/img/03-progressi-pro-chiaro-640.webp" srcset="../assets/img/03-progressi-pro-chiaro-360.webp 360w, ../assets/img/03-progressi-pro-chiaro-640.webp 640w" sizes="(max-width: 860px) 200px, 300px" width="640" height="1387" alt="Schermata Progressi di Lettavia con l&#x27;obiettivo dell&#x27;anno" loading="lazy" decoding="async"></picture><picture class="sl dim"><img src="../assets/img/07-nota-chiaro-640.webp" srcset="../assets/img/07-nota-chiaro-360.webp 360w, ../assets/img/07-nota-chiaro-640.webp 640w" sizes="(max-width: 860px) 200px, 300px" width="640" height="1387" alt="Una nota privata su un libro in Lettavia" loading="lazy" decoding="async"></picture></div></div>
+</div>
+</div>
+</section>
+
+<section class="sec extra" aria-labelledby="h-extra">
+<div class="wrap">
+<div class="sec-head rv"><h2 id="h-extra">E poi, i dettagli.</h2><p>Le piccole cose che rendono il diario comodo ogni giorno.</p></div>
+<ul class="grid8">
+<li class="rv"><span class="g-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M8 8v8M11 8v8M14 8v8M17 8v8"/></svg></span><h3>Scanner ISBN</h3><p>Il codice a barre del libro, letto con la fotocamera.</p></li><li class="rv"><span class="g-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span><h3>Ricerca nel catalogo</h3><p>Titoli e autori da Google Books e Open Library.</p></li><li class="rv"><span class="g-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7.5"/><path d="M12 9v4l2.5 2M10 2.5h4"/></svg></span><h3>Timer di lettura</h3><p>Pausa e Termina: il tempo finisce nelle statistiche.</p></li><li class="rv"><span class="g-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span><h3>Promemoria</h3><p>Notifiche per ricordare il momento della lettura.</p></li><li class="rv"><span class="g-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="17" height="7" rx="2"/></svg></span><h3>Widget per la Home</h3><p>Lettavia anche sulla schermata Home di iPhone.</p></li><li class="rv"><span class="g-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor"/></svg></span><h3>Tema chiaro e scuro</h3><p>Due temi, curati con la stessa attenzione.</p></li><li class="rv"><span class="g-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12.5h5M10 15.5h5M10 18.5h3"/></svg></span><h3>Import ed export CSV</h3><p>La libreria entra ed esce in un formato aperto.</p></li><li class="rv"><span class="g-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5 12 3.5l8 4-8 4z"/><path d="m4 12 8 4 8-4M4 16.5l8 4 8-4"/></svg></span><h3>Backup JSON e ZIP</h3><p>Copie complete, da conservare dove si preferisce.</p></li>
+</ul>
+</div>
+</section>
+
+<section class="sec priv" id="dati" aria-labelledby="h-dati">
+<div class="wrap priv-grid">
+<div class="priv-head rv">
+<p class="eyebrow">Privacy e dati</p>
+<h2 id="h-dati">I dati restano<br><em>sull'iPhone.</em></h2>
+<a class="link" href="privacy/">Informativa sulla privacy <svg class="ic-s" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+<ul class="priv-cells">
+<li class="rv"><h3>Nessun account.</h3><p>Si apre l'app e si comincia: niente registrazione, niente password.</p></li><li class="rv"><h3>Sul dispositivo.</h3><p>Libreria, note e statistiche risiedono sull'iPhone, non su server di Lettavia.</p></li><li class="rv"><h3>Backup in mano.</h3><p>File CSV, JSON o ZIP da conservare e spostare liberamente. Per cambiare iPhone si usa un backup.</p></li><li class="rv"><h3>Catalogo trasparente.</h3><p>La ricerca nel catalogo consulta Google Books e Open Library. Nessuna sincronizzazione cloud.</p></li>
+</ul>
+</div>
+</section>
+
+<section class="sec pro" id="pro" aria-labelledby="h-pro">
+<div class="wrap">
+<div class="center-head rv"><p class="eyebrow">Lettavia Pro</p><h2 id="h-pro">Di più, <em>per chi legge molto.</em></h2></div>
+<div class="plans rv" data-pal="terracotta">
+<article class="plan" aria-labelledby="pl-base">
+<h3 id="pl-base">Lettavia</h3>
+<p class="plan-d">Il diario di lettura completo.</p>
+<p class="plan-p">Sull'App Store</p>
+<ul class="chk"><li><svg class="ck" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>In lettura, timer e libreria con filtri</li><li><svg class="ck" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>Scanner ISBN e ricerca nel catalogo</li><li><svg class="ck" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>Note private, voto e date</li><li><svg class="ck" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>Obiettivo dell'anno e statistiche</li><li><svg class="ck" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>CSV, backup JSON e ZIP</li><li><svg class="ck" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>Promemoria, widget e tema chiaro o scuro</li></ul>
+</article>
+<article class="plan plan-pro" aria-labelledby="pl-pro">
+<h3 id="pl-pro">Lettavia Pro</h3>
+<p class="plan-d">Strumenti in più per organizzare la libreria e leggere i propri numeri.</p>
+<!-- [PREZZO] il prezzo non va scritto qui: resta il rimando all'App Store -->
+<p class="plan-p">Acquisto in-app · prezzo sull'App Store</p>
+<ul class="chk"><li class="all"><svg class="ck" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>Tutto Lettavia, più:</li><li><svg class="ck" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>Collezioni personali</li><li><svg class="ck" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>Generi con filtri e gruppi</li><li><svg class="ck" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>Statistiche dettagliate: velocità, serie di giorni, data prevista di fine</li><li><svg class="ck" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>Palette Salvia e Miele</li></ul>
+</article>
+<div class="pal">
+<div class="pal-c">
+<p class="pal-l" id="pal-l">Palette di colore</p>
+<div class="pal-sw" role="group" aria-labelledby="pal-l">
+<button type="button" class="sw" data-p="terracotta" aria-pressed="true"><i aria-hidden="true"></i>Terracotta</button>
+<button type="button" class="sw" data-p="salvia" aria-pressed="false"><i aria-hidden="true"></i>Salvia</button>
+<button type="button" class="sw" data-p="miele" aria-pressed="false"><i aria-hidden="true"></i>Miele</button>
+</div>
+<p class="pal-n">Terracotta è inclusa; Salvia e Miele fanno parte di Lettavia Pro.</p>
+</div>
+<div class="pal-demo" aria-hidden="true"><span class="pd-bar"><i></i></span><span class="pd-btn">Aggiorna lettura</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec faq" id="faq" aria-labelledby="h-faq">
+<div class="wrap faq-grid">
+<div class="faq-head rv"><h2 id="h-faq">Domande<br>frequenti</h2><a class="link" href="supporto/">Altre risposte in Supporto <svg class="ic-s" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+<div class="faq-list rv">
+<details class="qa"><summary><span>Quanto costa Lettavia?</span><span class="qa-i" aria-hidden="true"><svg class="pl" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="qa-a"><p>L'app si scarica dall'App Store. Lettavia Pro è un acquisto in-app; il prezzo aggiornato è indicato sull'App Store.</p></div></details>
+<details class="qa"><summary><span>Serve un account? Che fine fanno i dati?</span><span class="qa-i" aria-hidden="true"><svg class="pl" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="qa-a"><p>Nessun account e nessun server di Lettavia: libreria, note e statistiche restano sul telefono e nei backup creati dall'utente.</p></div></details>
+<details class="qa"><summary><span>Si può importare una libreria esistente?</span><span class="qa-i" aria-hidden="true"><svg class="pl" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="qa-a"><p>Sì, da file CSV. Lettavia esporta a sua volta in CSV e crea backup completi in JSON o ZIP.</p></div></details>
+<details class="qa"><summary><span>I dati si sincronizzano tra più dispositivi?</span><span class="qa-i" aria-hidden="true"><svg class="pl" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="qa-a"><p>No, non c'è sincronizzazione cloud. Per spostare la libreria su un altro iPhone si usano i backup.</p></div></details>
+</div>
+</div>
+</section>
+
+<section class="sec cta" id="scarica" aria-labelledby="h-cta">
+<div class="wrap">
+<div class="cta-card rv">
+<div class="cta-art" aria-hidden="true"><div class="ph cta-ph"><div class="fr"><picture class=" dim"><img src="../assets/img/04-dettaglio-chiaro-640.webp" srcset="../assets/img/04-dettaglio-chiaro-360.webp 360w, ../assets/img/04-dettaglio-chiaro-640.webp 640w" sizes="(max-width: 760px) 200px, 260px" width="640" height="1387" alt="" loading="lazy" decoding="async"></picture></div></div></div>
+<div class="cta-copy">
+<p class="badge"><span class="dot" aria-hidden="true"></span>Per iPhone</p>
+<h2 id="h-cta">Il prossimo libro<br><em>comincia qui.</em></h2>
+<p>Lettavia sarà disponibile su App Store.</p>
+<!-- [LINK APP STORE] sostituire href="#" con il link ufficiale e il pulsante con il badge ufficiale Apple "Scarica su App Store" -->
+<a class="store" href="#" aria-label="Scarica su App Store (link in arrivo)"><small>Scarica su</small><strong>App Store</strong></a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="foot">
+<div class="wrap foot-grid">
+<div class="foot-brand">
+<a class="brand" href="./"><img src="../assets/img/icona-96.webp" width="30" height="30" alt="">Lettavia</a>
+<p>Il diario di lettura personale per iPhone.</p>
+<p class="note">Anteprima di design, non definitiva.</p>
+</div>
+<nav class="foot-col" aria-label="Sito"><h2>Lettavia</h2><a href="#funzioni">Funzioni</a><a href="#dati">Privacy e dati</a><a href="#pro">Lettavia Pro</a><a href="#faq">Domande frequenti</a></nav>
+<nav class="foot-col" aria-label="Aiuto"><h2>Aiuto</h2><a href="supporto/">Supporto</a><a href="supporto/#contatto">Contatto</a></nav>
+<nav class="foot-col" aria-label="Legale"><h2>Legale</h2><a href="privacy/">Privacy</a><a href="termini/">Termini d'uso</a></nav>
+</div>
+<div class="wrap foot-bottom"><p>&copy; Lettavia. Apple, iPhone e App Store sono marchi di Apple Inc.</p><a href="#contenuto">Torna su</a></div>
+</footer>
+</body>
+</html>
