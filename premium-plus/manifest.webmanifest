@@ -1,0 +1,17 @@
+{
+  "name": "Lettavia",
+  "short_name": "Lettavia",
+  "description": "Il diario di lettura per iPhone.",
+  "lang": "it",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#15110E",
+  "theme_color": "#15110E",
+  "icons": [
+    {"src": "icons/favicon.svg", "sizes": "any", "type": "image/svg+xml"},
+    {"src": "icons/icon-180.png", "sizes": "180x180", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
